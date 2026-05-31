@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "hero": { "type": "hero-banner", "settings": {} },
+    "features": { "type": "features-strip", "settings": {} },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "heading": "Our Most Loved",
+        "subtext": "Discover the products our community can't stop talking about.",
+        "btn_text": "Shop All Products",
+        "products_count": 4
+      }
+    },
+    "about": {
+      "type": "about-banner",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "Where Nature Meets Science",
+        "text": "We believe your skin deserves the best nature has to offer. Every Petal & Pine formula is crafted from carefully sourced botanicals, free from harmful chemicals.",
+        "stat1_number": "50+",
+        "stat1_label": "Natural Ingredients",
+        "stat2_number": "10K+",
+        "stat2_label": "Happy Customers",
+        "stat3_number": "0",
+        "stat3_label": "Harmful Chemicals",
+        "btn_text": "Learn More"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "review-1": { "type": "review", "settings": { "quote": "This serum completely transformed my skin. I've been using it for two months and the results are incredible!", "name": "Sarah M.", "meta": "Verified Customer" } },
+        "review-2": { "type": "review", "settings": { "quote": "Finally a brand that uses real clean ingredients. My skin has never felt so soft and nourished.", "name": "Emily R.", "meta": "Verified Customer" } },
+        "review-3": { "type": "review", "settings": { "quote": "The packaging is gorgeous and the products smell heavenly. The face cream keeps my skin hydrated all day.", "name": "Jessica T.", "meta": "Verified Customer" } }
+      },
+      "block_order": ["review-1", "review-2", "review-3"],
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Petal & Pine Family",
+        "subtext": "Get exclusive offers, skincare tips, and early access to new launches.",
+        "btn_text": "Subscribe"
+      }
+    }
+  },
+  "order": ["hero", "features", "featured-products", "about", "testimonials", "newsletter"]
+}

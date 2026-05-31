@@ -1,0 +1,52 @@
+<section class="featured-products section-padding">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+
+    <div class="grid-4">
+      {% assign collection = collections[section.settings.collection] %}
+      {% if collection and collection.products.size > 0 %}
+        {% for product in collection.products limit: section.settings.products_count %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="product-card">
+            <div class="product-card__media">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+              <span class="product-card__badge badge-new">New</span>
+            </div>
+            <div class="product-card__info">
+              <div class="product-card__vendor">Petal & Pine</div>
+              <div class="product-card__title">Sample Product {{ i }}</div>
+              <div class="product-card__price"><span class="price">$38.00</span></div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="{{ section.settings.btn_link }}" class="btn btn-outline">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Bestsellers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Most Loved" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Discover the products our community can't stop talking about." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_count", "min": 2, "max": 8, "step": 1, "default": 4, "label": "Number of products" },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "View All Products" },
+    { "type": "url", "id": "btn_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Featured Products" }]
+}
+{% endschema %}

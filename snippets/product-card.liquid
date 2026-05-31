@@ -1,0 +1,38 @@
+{% comment %}
+  Usage: {% render 'product-card', product: product %}
+{% endcomment %}
+
+<div class="product-card">
+  <div class="product-card__media">
+    <a href="{{ product.url }}">
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </a>
+
+    {% if product.tags contains 'new' %}
+      <span class="product-card__badge badge-new">New</span>
+    {% elsif product.compare_at_price > product.price %}
+      <span class="product-card__badge badge-sale">Sale</span>
+    {% elsif product.tags contains 'bestseller' %}
+      <span class="product-card__badge badge-bestseller">Bestseller</span>
+    {% endif %}
+
+    <div class="product-card__quick-add">
+      <a href="{{ product.url }}" class="btn btn-white btn-full">View Product</a>
+    </div>
+  </div>
+
+  <div class="product-card__info">
+    <div class="product-card__vendor">{{ product.vendor }}</div>
+    <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>
+    <div class="product-card__price">
+      <span class="price">{{ product.price | money }}</span>
+      {% if product.compare_at_price > product.price %}
+        <span class="price-compare">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>

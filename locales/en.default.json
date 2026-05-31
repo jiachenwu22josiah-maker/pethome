@@ -1,0 +1,18 @@
+{
+  "general": {
+    "search": { "placeholder": "Search products..." },
+    "newsletter": { "label": "Email address" }
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "checkout": "Proceed to Checkout",
+    "subtotal": "Subtotal"
+  },
+  "products": {
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "view_product": "View Product",
+    "quantity": "Quantity"
+  }
+}

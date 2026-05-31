@@ -1,0 +1,49 @@
+<section class="testimonials section-padding">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Reviews</span>
+      <h2>What Our Customers Say</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="stars">★★★★★</div>
+          <blockquote>"{{ block.settings.quote }}"</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">{{ block.settings.name | slice: 0 }}</div>
+            <div>
+              <div class="author-name">{{ block.settings.name }}</div>
+              <div class="author-meta">{{ block.settings.meta }}</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "This serum completely transformed my skin. I've been using it for two months and the results are incredible!" },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Sarah M." },
+        { "type": "text", "id": "meta", "label": "Meta text", "default": "Verified Customer" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Testimonials",
+    "blocks": [
+      { "type": "review", "settings": { "quote": "This serum completely transformed my skin. I've been using it for two months and the results are incredible!", "name": "Sarah M.", "meta": "Verified Customer" } },
+      { "type": "review", "settings": { "quote": "Finally a brand that uses real clean ingredients. My skin has never felt so soft and nourished. Absolutely love it!", "name": "Emily R.", "meta": "Verified Customer" } },
+      { "type": "review", "settings": { "quote": "The packaging is gorgeous and the products smell heavenly. The face cream keeps my skin hydrated all day.", "name": "Jessica T.", "meta": "Verified Customer" } }
+    ]
+  }]
+}
+{% endschema %}

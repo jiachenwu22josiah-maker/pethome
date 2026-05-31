@@ -1,0 +1,143 @@
+<div class="product-page">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="{{ product.collections.first.url }}">{{ product.collections.first.title | default: 'Shop' }}</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>{{ product.title }}</span>
+    </nav>
+
+    <div class="product-layout">
+
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <div class="product-gallery__main">
+          {% if product.featured_image %}
+            {{ product.featured_image | image_url: width: 900 | image_tag: id: 'main-product-img', loading: 'eager', alt: product.title }}
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        {% if product.images.size > 1 %}
+          <div class="product-gallery__thumbs">
+            {% for image in product.images limit: 4 %}
+              <div class="thumb {% if forloop.first %}active{% endif %}">
+                {{ image | image_url: width: 300 | image_tag: loading: 'lazy', alt: product.title }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Info -->
+      <div class="product-info">
+        <div class="product-vendor">{{ product.vendor }}</div>
+        <h1 class="product-title">{{ product.title }}</h1>
+
+        <div class="product-rating">
+          <span class="rating-stars">★★★★★</span>
+          <span class="rating-count">({{ product.metafields.reviews.rating_count | default: '24' }} reviews)</span>
+        </div>
+
+        <div class="product-price-wrap">
+          <span class="product-price" id="product-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span class="product-price-compare">{{ product.compare_at_price | money }}</span>
+            <div class="price-savings">
+              Save {{ product.compare_at_price | minus: product.price | money }}
+              ({{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% off)
+            </div>
+          {% endif %}
+        </div>
+
+        <hr class="product-divider">
+
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <div class="variant-label">{{ option.name }}</div>
+            <div class="variant-options">
+              {% for value in option.values %}
+                <button class="variant-btn {% if forloop.first %}active{% endif %}">{{ value }}</button>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+        {% form 'product', product %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <div class="add-to-cart-wrap">
+            <div class="qty-large qty-control">
+              <button type="button" class="qty-btn" data-qty-minus aria-label="Decrease">−</button>
+              <input class="qty-input" type="number" name="quantity" value="1" min="1">
+              <button type="button" class="qty-btn" data-qty-plus aria-label="Increase">+</button>
+            </div>
+            <button type="submit" class="btn btn-primary btn-add-to-cart" {% unless product.available %}disabled{% endunless %}>
+              {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+            </button>
+          </div>
+        {% endform %}
+
+        <p class="product-short-desc">{{ product.description | strip_html | truncate: 200 }}</p>
+
+        <div class="product-perks">
+          <div class="perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 12l3 3 5-5"/>
+            </svg>
+            Free shipping on orders over $50
+          </div>
+          <div class="perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            Cruelty-free & vegan
+          </div>
+          <div class="perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+            </svg>
+            30-day return policy
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Product Tabs -->
+    <div class="product-tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="description">Description</button>
+        <button class="tab-btn" data-tab="ingredients">Ingredients</button>
+        <button class="tab-btn" data-tab="howto">How to Use</button>
+      </div>
+
+      <div id="tab-description" class="tab-content active">
+        <div class="tab-body">
+          {{ product.description }}
+        </div>
+      </div>
+
+      <div id="tab-ingredients" class="tab-content">
+        <p>Our formula is crafted with the finest botanical ingredients, carefully selected for their efficacy and purity.</p>
+        <div class="ingredients-list">
+          {% for tag in product.tags %}
+            {% if tag contains 'ingredient:' %}
+              <div class="ingredient-chip">{{ tag | remove: 'ingredient:' }}</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div id="tab-howto" class="tab-content">
+        <p>{{ product.metafields.custom.how_to_use | default: 'Apply a small amount to clean skin morning and evening. Gently massage in upward circular motions until fully absorbed. Follow with your preferred moisturiser.' }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Product Template", "settings": [] }
+{% endschema %}

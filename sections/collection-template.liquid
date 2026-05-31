@@ -1,0 +1,62 @@
+<div class="collection-header">
+  <div class="container">
+    <h1>{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <p>{{ collection.description }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<section class="collection-filters">
+  <div class="container">
+    <div class="filters-inner">
+      <div class="filter-tags">
+        <button class="filter-tag active">All</button>
+        {% for tag in collection.all_tags %}
+          <button class="filter-tag">{{ tag }}</button>
+        {% endfor %}
+      </div>
+      <select class="sort-select" name="sort_by">
+        <option value="manual">Featured</option>
+        <option value="best-selling">Best Selling</option>
+        <option value="price-ascending">Price: Low to High</option>
+        <option value="price-descending">Price: High to Low</option>
+        <option value="created-descending">Newest</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<div class="products-grid">
+  <div class="container">
+    <p class="product-count">{{ collection.products_count }} products</p>
+    <div class="grid-4">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% else %}
+        {% for i in (1..8) %}
+          <div class="product-card">
+            <div class="product-card__media">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="product-card__info">
+              <div class="product-card__vendor">Petal & Pine</div>
+              <div class="product-card__title">Sample Product {{ i }}</div>
+              <div class="product-card__price"><span class="price">$38.00</span></div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <div style="text-align:center;margin-top:48px;">
+        {{ paginate | default_pagination }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Collection Template", "settings": [] }
+{% endschema %}

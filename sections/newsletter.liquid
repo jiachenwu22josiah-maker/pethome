@@ -1,0 +1,26 @@
+<section class="newsletter section-padding">
+  <div class="container">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subtext }}</p>
+    {% form 'customer', id: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="newsletter-form">
+        <input type="email" name="contact[email]" placeholder="{{ section.settings.placeholder }}" required>
+        <button type="submit" class="btn btn-primary">{{ section.settings.btn_text }}</button>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the Petal & Pine Family" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Get exclusive offers, skincare tips, and early access to new launches." },
+    { "type": "text", "id": "placeholder", "label": "Input placeholder", "default": "Your email address" },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "Subscribe" }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

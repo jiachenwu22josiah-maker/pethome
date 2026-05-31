@@ -1,0 +1,25 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Petal & Pine",
+    "theme_version": "1.0.0",
+    "theme_author": "Petal & Pine",
+    "theme_documentation_url": "https://northsprout.myshopify.com",
+    "theme_support_url": "https://northsprout.myshopify.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_primary", "label": "Primary green", "default": "#4A7C2F" },
+      { "type": "color", "id": "color_primary_dark", "label": "Dark green", "default": "#2A4A1E" },
+      { "type": "color", "id": "color_bg", "label": "Background", "default": "#FAFAF5" },
+      { "type": "color", "id": "color_text", "label": "Body text", "default": "#1A1A1A" }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon image" }
+    ]
+  }
+]
