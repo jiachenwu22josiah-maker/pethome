@@ -1,15 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero": { "type": "hero-banner", "settings": {} },
-    "features": { "type": "features-strip", "settings": {} },
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "eyebrow": "Clean Beauty",
+        "heading": "Nature's Purest Beauty, Bottled for You",
+        "subtext": "Formulated with botanical ingredients to nourish your skin, naturally.",
+        "btn1_text": "Shop Now",
+        "btn1_link": "",
+        "btn2_text": "Our Story",
+        "btn2_link": ""
+      }
+    },
+    "features": {
+      "type": "features-strip",
+      "settings": {}
+    },
     "featured-products": {
       "type": "featured-products",
       "settings": {
         "eyebrow": "Bestsellers",
         "heading": "Our Most Loved",
         "subtext": "Discover the products our community can't stop talking about.",
+        "collection": "bestseller",
+        "products_count": 4,
         "btn_text": "Shop All Products",
-        "products_count": 4
+        "btn_link": ""
       }
     },
     "about": {
@@ -24,17 +49,43 @@
         "stat2_label": "Happy Customers",
         "stat3_number": "0",
         "stat3_label": "Harmful Chemicals",
-        "btn_text": "Learn More"
+        "btn_text": "Learn More",
+        "btn_link": ""
       }
     },
     "testimonials": {
       "type": "testimonials",
       "blocks": {
-        "review-1": { "type": "review", "settings": { "quote": "This serum completely transformed my skin. I've been using it for two months and the results are incredible!", "name": "Sarah M.", "meta": "Verified Customer" } },
-        "review-2": { "type": "review", "settings": { "quote": "Finally a brand that uses real clean ingredients. My skin has never felt so soft and nourished.", "name": "Emily R.", "meta": "Verified Customer" } },
-        "review-3": { "type": "review", "settings": { "quote": "The packaging is gorgeous and the products smell heavenly. The face cream keeps my skin hydrated all day.", "name": "Jessica T.", "meta": "Verified Customer" } }
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "quote": "This serum completely transformed my skin. I've been using it for two months and the results are incredible!",
+            "name": "Sarah M.",
+            "meta": "Verified Customer"
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "quote": "Finally a brand that uses real clean ingredients. My skin has never felt so soft and nourished.",
+            "name": "Emily R.",
+            "meta": "Verified Customer"
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "quote": "The packaging is gorgeous and the products smell heavenly. The face cream keeps my skin hydrated all day.",
+            "name": "Jessica T.",
+            "meta": "Verified Customer"
+          }
+        }
       },
-      "block_order": ["review-1", "review-2", "review-3"],
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
       "settings": {}
     },
     "newsletter": {
@@ -42,9 +93,17 @@
       "settings": {
         "heading": "Join the Petal & Pine Family",
         "subtext": "Get exclusive offers, skincare tips, and early access to new launches.",
+        "placeholder": "Your email address",
         "btn_text": "Subscribe"
       }
     }
   },
-  "order": ["hero", "features", "featured-products", "about", "testimonials", "newsletter"]
+  "order": [
+    "hero",
+    "features",
+    "featured-products",
+    "about",
+    "testimonials",
+    "newsletter"
+  ]
 }
