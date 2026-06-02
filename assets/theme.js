@@ -3,6 +3,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initCartDrawer();
+  initEmailPopup();
+  initReviewForm();
+  initStarPicker();
+  initPhotoUpload();
   initMobileNav();
   initProductGallery();
   initProductTabs();
@@ -151,3 +155,138 @@ document.querySelector('.newsletter-form')?.addEventListener('submit', e => {
     input.value = '';
   }
 });
+
+// ===== Email Popup =====
+function initEmailPopup() {
+  const popup = document.getElementById('email-popup');
+  const overlay = document.getElementById('popup-overlay');
+  if (!popup) return;
+
+  // Show after 4 seconds, only once per session
+  if (!sessionStorage.getItem('pp_popup_seen')) {
+    setTimeout(() => {
+      popup.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }, 4000);
+  }
+
+  document.getElementById('popup-close')?.addEventListener('click', closePopup);
+  overlay.addEventListener('click', closePopup);
+}
+
+function closePopup() {
+  const popup = document.getElementById('email-popup');
+  const overlay = document.getElementById('popup-overlay');
+  popup?.classList.remove('active');
+  overlay?.classList.remove('active');
+  document.body.style.overflow = '';
+  sessionStorage.setItem('pp_popup_seen', '1');
+}
+
+function claimOffer(e) {
+  e.preventDefault();
+  const email = document.getElementById('popup-email').value;
+  if (!email) return;
+  document.getElementById('popup-form').style.display = 'none';
+  document.getElementById('popup-coupon').style.display = 'block';
+  sessionStorage.setItem('pp_popup_seen', '1');
+  // Here you'd send email to your mailing list via API
+}
+
+function copyCoupon() {
+  const code = document.getElementById('coupon-code').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    document.getElementById('coupon-code').textContent = 'Copied! ✓';
+    setTimeout(() => {
+      document.getElementById('coupon-code').textContent = code;
+    }, 2000);
+  });
+}
+
+// ===== Review Form =====
+function initReviewForm() {
+  const btn = document.getElementById('write-review-btn');
+  const wrap = document.getElementById('review-form-wrap');
+  btn?.addEventListener('click', () => {
+    wrap.classList.add('open');
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+function closeReviewForm() {
+  document.getElementById('review-form-wrap')?.classList.remove('open');
+}
+
+function submitReview(e) {
+  e.preventDefault();
+  const rating = document.getElementById('rating-input').value;
+  if (rating === '0') {
+    alert('Please select a star rating.');
+    return;
+  }
+  document.getElementById('review-form').style.display = 'none';
+  document.getElementById('review-success').style.display = 'block';
+}
+
+// ===== Star Picker =====
+function initStarPicker() {
+  const stars = document.querySelectorAll('.star-opt');
+  const input = document.getElementById('rating-input');
+  if (!stars.length) return;
+
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      const val = parseInt(star.dataset.val);
+      input.value = val;
+      stars.forEach(s => {
+        s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+      });
+    });
+    star.addEventListener('mouseover', () => {
+      const val = parseInt(star.dataset.val);
+      stars.forEach(s => {
+        s.style.color = parseInt(s.dataset.val) <= val ? '#F4C23B' : '';
+      });
+    });
+  });
+  document.getElementById('star-picker')?.addEventListener('mouseleave', () => {
+    const val = parseInt(input.value);
+    stars.forEach(s => {
+      s.style.color = parseInt(s.dataset.val) <= val ? '#F4C23B' : '';
+    });
+  });
+}
+
+// ===== Photo Upload =====
+function initPhotoUpload() {
+  const input = document.getElementById('photo-input');
+  const previews = document.getElementById('photo-previews');
+  if (!input) return;
+
+  input.addEventListener('change', () => {
+    const files = Array.from(input.files).slice(0, 3);
+    previews.innerHTML = '';
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const div = document.createElement('div');
+        div.className = 'photo-preview-item';
+        div.innerHTML = `<img src="${e.target.result}" alt="preview">
+          <div class="photo-preview-remove" onclick="this.parentNode.remove()">✕</div>`;
+        previews.appendChild(div);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+}
+
+// ===== Helpful Button =====
+function markHelpful(btn) {
+  if (btn.classList.contains('active')) return;
+  btn.classList.add('active');
+  const match = btn.textContent.match(/\((\d+)\)/);
+  if (match) {
+    btn.textContent = btn.textContent.replace(`(${match[1]})`, `(${parseInt(match[1]) + 1})`);
+  }
+}

@@ -1,6 +1,7 @@
 {
   "sections": {
-    "main": { "type": "product-template", "settings": {} }
+    "main": { "type": "product-template", "settings": {} },
+    "reviews": { "type": "product-reviews", "settings": {} }
   },
-  "order": ["main"]
+  "order": ["main", "reviews"]
 }
