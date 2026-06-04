@@ -1,0 +1,57 @@
+<div class="page-header">
+  <div class="container">
+    <span class="eyebrow">Get in Touch</span>
+    <h1>Contact Us</h1>
+    <p>We're here to help. Reach out and we'll respond within 24 hours.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="page-content" style="max-width:700px;">
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;text-align:center;">
+      <div style="background:var(--cream);padding:28px 20px;">
+        <div style="font-size:1.75rem;margin-bottom:10px;">📧</div>
+        <strong style="display:block;color:var(--black);margin-bottom:6px;font-size:0.875rem;">Email</strong>
+        <a href="mailto:support@{{ shop.domain }}" style="font-size:0.8125rem;color:var(--gold);">support@{{ shop.domain }}</a>
+      </div>
+      <div style="background:var(--cream);padding:28px 20px;">
+        <div style="font-size:1.75rem;margin-bottom:10px;">⏰</div>
+        <strong style="display:block;color:var(--black);margin-bottom:6px;font-size:0.875rem;">Hours</strong>
+        <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">Mon–Fri<br>Within 24h</p>
+      </div>
+      <div style="background:var(--cream);padding:28px 20px;">
+        <div style="font-size:1.75rem;margin-bottom:10px;">📦</div>
+        <strong style="display:block;color:var(--black);margin-bottom:6px;font-size:0.875rem;">Orders</strong>
+        <a href="/pages/shipping" style="font-size:0.8125rem;color:var(--gold);">Shipping Info →</a>
+      </div>
+    </div>
+
+    {% form 'contact' %}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <div>
+          <label style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;color:var(--text-muted);">Name</label>
+          <input type="text" name="contact[name]" style="width:100%;padding:13px 16px;border:1px solid var(--border);font-size:0.875rem;font-family:inherit;outline:none;background:var(--cream);border-radius:var(--radius);transition:border-color 0.3s;" required>
+        </div>
+        <div>
+          <label style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;color:var(--text-muted);">Email</label>
+          <input type="email" name="contact[email]" style="width:100%;padding:13px 16px;border:1px solid var(--border);font-size:0.875rem;font-family:inherit;outline:none;background:var(--cream);border-radius:var(--radius);transition:border-color 0.3s;" required>
+        </div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;color:var(--text-muted);">Subject</label>
+        <input type="text" name="contact[subject]" style="width:100%;padding:13px 16px;border:1px solid var(--border);font-size:0.875rem;font-family:inherit;outline:none;background:var(--cream);border-radius:var(--radius);">
+      </div>
+      <div style="margin-bottom:24px;">
+        <label style="display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;color:var(--text-muted);">Message</label>
+        <textarea name="contact[body]" rows="6" style="width:100%;padding:13px 16px;border:1px solid var(--border);font-size:0.875rem;font-family:inherit;outline:none;background:var(--cream);border-radius:var(--radius);resize:vertical;" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-dark btn-full">Send Message</button>
+    {% endform %}
+
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Page - Contact", "settings": [] }
+{% endschema %}
