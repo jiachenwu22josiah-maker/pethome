@@ -1,9 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero": { "type": "hero-banner", "settings": { "eyebrow": "Premium Skincare", "heading": "Skin That Speaks\nFor Itself.", "subtext": "Advanced skincare formulated with the world's finest botanical and bio-active ingredients.", "btn1_text": "Shop Now", "btn1_link": "/collections/all", "btn2_text": "New In", "btn2_link": "/collections/new" } },
-    "highlights": { "type": "highlight-strip", "settings": {} },
-    "featured": { "type": "featured-products", "settings": { "eyebrow": "Bestsellers", "heading": "Our Most Loved", "subtext": "Discover the treatments our customers return to again and again.", "collection": "bestseller", "products_count": 4, "btn_text": "Shop All", "btn_link": "/collections/all" } },
-    "newsletter": { "type": "newsletter", "settings": { "heading": "Join the Inner Circle", "subtext": "Be first to know about new launches, exclusive offers, and skin tips.", "btn_text": "Subscribe" } }
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_4_2026_09_48_42_AM.png",
+        "eyebrow": "Premium Skincare",
+        "heading": "Skin That Speaks\nFor Itself.",
+        "subtext": "Advanced skincare formulated with the world's finest botanical and bio-active ingredients.",
+        "btn1_text": "Shop Now",
+        "btn1_link": "/collections/all",
+        "btn2_text": "New In",
+        "btn2_link": "/collections/new"
+      }
+    },
+    "highlights": {
+      "type": "highlight-strip",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "heading": "Our Most Loved",
+        "subtext": "Discover the treatments our customers return to again and again.",
+        "collection": "bestseller",
+        "products_count": 4,
+        "btn_text": "Shop All",
+        "btn_link": "/collections/all"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Inner Circle",
+        "subtext": "Be first to know about new launches, exclusive offers, and skin tips.",
+        "placeholder": "Your email address",
+        "btn_text": "Subscribe"
+      }
+    }
   },
-  "order": ["hero", "highlights", "featured", "newsletter"]
+  "order": [
+    "hero",
+    "highlights",
+    "featured",
+    "newsletter"
+  ]
 }
