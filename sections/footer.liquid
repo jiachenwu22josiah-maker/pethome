@@ -3,16 +3,8 @@
     <div class="footer-top">
 
       <div class="footer-brand">
-        <a href="/" class="footer-logo">Petal <span>&</span> Pine</a>
-        <p>Clean, botanical beauty for your best skin. Formulated with nature, backed by science.</p>
-        <div class="social-links">
-          <a href="https://www.tiktok.com/@josiah316" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61590198052216" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-        </div>
+        <a href="/" class="footer-logo">{{ shop.name }}</a>
+        <p>Premium skincare formulated with nature's finest ingredients. Clean, effective, and consciously crafted.</p>
       </div>
 
       <div class="footer-col">
@@ -21,7 +13,6 @@
           <li><a href="/collections/all">All Products</a></li>
           <li><a href="/collections/skincare">Skincare</a></li>
           <li><a href="/collections/body">Body Care</a></li>
-          <li><a href="/collections/sets">Gift Sets</a></li>
           <li><a href="/collections/new">New Arrivals</a></li>
         </ul>
       </div>
@@ -29,27 +20,27 @@
       <div class="footer-col">
         <h5>Help</h5>
         <ul>
-          <li><a href="/pages/faq">FAQ</a></li>
           <li><a href="/pages/shipping">Shipping Info</a></li>
           <li><a href="/pages/returns">Returns</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
           <li><a href="/pages/contact">Contact Us</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Company</h5>
+        <h5>Legal</h5>
         <ul>
-          <li><a href="/pages/about">Our Story</a></li>
-          <li><a href="/pages/ingredients">Our Ingredients</a></li>
-          <li><a href="/pages/sustainability">Sustainability</a></li>
-          <li><a href="/blogs/news">Journal</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+          <li><a href="/policies/refund-policy">Refund Policy</a></li>
+          <li><a href="/policies/shipping-policy">Shipping Policy</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <span>© {{ 'now' | date: '%Y' }} Petal & Pine. All rights reserved.</span>
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
       <div class="footer-payment">
         <span class="payment-icon">VISA</span>
         <span class="payment-icon">MC</span>
@@ -62,8 +53,5 @@
 </footer>
 
 {% schema %}
-{
-  "name": "Footer",
-  "settings": []
-}
+{ "name": "Footer", "settings": [] }
 {% endschema %}
