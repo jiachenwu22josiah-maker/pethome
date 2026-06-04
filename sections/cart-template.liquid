@@ -4,19 +4,15 @@
 
     {% if cart.item_count == 0 %}
       <div style="text-align:center;padding:80px 0;">
-        <p style="color:var(--color-text-muted);margin-bottom:24px;">Your cart is empty.</p>
-        <a href="/collections/all" class="btn btn-primary">Continue Shopping</a>
+        <p style="color:var(--text-muted);margin-bottom:24px;font-size:1.0625rem;">Your cart is empty.</p>
+        <a href="/collections/all" class="btn btn-dark">Continue Shopping</a>
       </div>
     {% else %}
       <div class="cart-layout">
-        <div class="cart-items">
+        <div>
           <div class="cart-table-header">
-            <span>Product</span>
-            <span>Price</span>
-            <span>Quantity</span>
-            <span></span>
+            <span>Product</span><span>Price</span><span>Quantity</span><span></span>
           </div>
-
           {% for item in cart.items %}
             <div class="cart-table-item">
               <div class="cart-product-info">
@@ -32,19 +28,14 @@
                   {% endunless %}
                 </div>
               </div>
-
-              <div class="cart-product-price">{{ item.price | money }}</div>
-
+              <div>{{ item.price | money }}</div>
               <div class="qty-control">
-                <button class="qty-btn" data-qty-minus aria-label="Decrease">−</button>
+                <button class="qty-btn" data-qty-minus>−</button>
                 <input class="qty-input" type="number" value="{{ item.quantity }}" min="1" readonly>
-                <button class="qty-btn" data-qty-plus aria-label="Increase">+</button>
+                <button class="qty-btn" data-qty-plus>+</button>
               </div>
-
-              <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart-remove" aria-label="Remove">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
+              <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart-remove">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </a>
             </div>
           {% endfor %}
@@ -52,34 +43,24 @@
 
         <div class="cart-summary">
           <h3>Order Summary</h3>
-
           {% for item in cart.items %}
             <div class="summary-row">
               <span>{{ item.product.title }} × {{ item.quantity }}</span>
               <span>{{ item.line_price | money }}</span>
             </div>
           {% endfor %}
-
-          <div class="summary-row">
-            <span>Shipping</span>
-            <span>Calculated at checkout</span>
-          </div>
-
+          <div class="summary-row"><span>Shipping</span><span>Calculated at checkout</span></div>
           <div class="summary-total">
             <span>Total</span>
             <strong>{{ cart.total_price | money }}</strong>
           </div>
-
-          <p class="cart-shipping-note">
-            {% if cart.total_price >= 5000 %}
-              ✓ You qualify for free shipping!
-            {% else %}
-              Add {{ 5000 | minus: cart.total_price | money }} more for free shipping
-            {% endif %}
-          </p>
-
-          <a href="/checkout" class="btn btn-primary cart-checkout">Proceed to Checkout</a>
-          <a href="/collections/all" class="btn btn-outline btn-full" style="margin-top:12px;">Continue Shopping</a>
+          {% if cart.total_price < 5000 %}
+            <p style="font-size:0.8125rem;color:var(--gold);margin-bottom:20px;">Add {{ 5000 | minus: cart.total_price | money }} more for free shipping</p>
+          {% else %}
+            <p style="font-size:0.8125rem;color:var(--gold);margin-bottom:20px;">✓ You qualify for free shipping!</p>
+          {% endif %}
+          <a href="/checkout" class="btn btn-dark btn-full" style="margin-bottom:12px;">Proceed to Checkout</a>
+          <a href="/collections/all" class="btn btn-outline btn-full">Continue Shopping</a>
         </div>
       </div>
     {% endif %}

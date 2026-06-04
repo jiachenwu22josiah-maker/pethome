@@ -1,6 +1,5 @@
 {
   "sections": {
-    "announcement": { "type": "announcement-bar", "settings": { "show_bar": true, "text": "Free shipping on orders over $50 · Clean Beauty · Cruelty-Free" } },
     "hero": { "type": "hero-banner", "settings": { "eyebrow": "Premium Skincare", "heading": "Skin That Speaks\nFor Itself.", "subtext": "Advanced skincare formulated with the world's finest botanical and bio-active ingredients.", "btn1_text": "Shop Now", "btn1_link": "/collections/all", "btn2_text": "New In", "btn2_link": "/collections/new" } },
     "highlights": { "type": "highlight-strip", "settings": {} },
     "featured": { "type": "featured-products", "settings": { "eyebrow": "Bestsellers", "heading": "Our Most Loved", "subtext": "Discover the treatments our customers return to again and again.", "collection": "bestseller", "products_count": 4, "btn_text": "Shop All", "btn_link": "/collections/all" } },

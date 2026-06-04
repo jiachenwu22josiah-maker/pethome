@@ -166,3 +166,16 @@ p:last-child { margin-bottom: 0; }
   padding:0; margin:-1px; overflow:hidden;
   clip:rect(0,0,0,0); white-space:nowrap; border:0;
 }
+
+/* ===== Compatibility aliases ===== */
+.section-padding { padding: 96px 0; }
+.section-padding-sm { padding: 60px 0; }
+.btn-primary { background: var(--black); color: var(--white); border: 1px solid var(--black); }
+.btn-primary:hover { background: #333; border-color: #333; }
+.section-title { text-align: center; margin-bottom: 56px; }
+.section-title h2 { margin-bottom: 12px; }
+.section-title p { color: var(--text-muted); max-width: 480px; margin: 0 auto; font-size: 1.0625rem; }
+.eyebrow { display: block; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.badge-new { background: var(--black); color: white; }
+.badge-sale { background: var(--gold); color: white; }
+.badge-bestseller { background: #333; color: white; }
