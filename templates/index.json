@@ -13,9 +13,9 @@
       "type": "hero-banner",
       "settings": {
         "image": "shopify://shop_images/ChatGPT_Image_Jun_4_2026_09_48_42_AM.png",
-        "eyebrow": "Premium Skincare",
-        "heading": "Skin That Speaks\nFor Itself.",
-        "subtext": "Advanced skincare formulated with the world's finest botanical and bio-active ingredients.",
+        "eyebrow": "Advanced Oral Care",
+        "heading": "Your Brightest\nSmile Ever.",
+        "subtext": "PAP+ whitening technology clinically proven to whiten teeth without sensitivity or enamel damage.",
         "btn1_text": "Shop Now",
         "btn1_link": "/collections/all",
         "btn2_text": "New In",
@@ -30,8 +30,8 @@
       "type": "featured-products",
       "settings": {
         "eyebrow": "Bestsellers",
-        "heading": "Our Most Loved",
-        "subtext": "Discover the treatments our customers return to again and again.",
+        "heading": "Most Loved Whitening",
+        "subtext": "Trusted by thousands for whiter teeth, zero sensitivity, and real visible results.",
         "collection": "bestseller",
         "products_count": 4,
         "btn_text": "Shop All",
@@ -41,8 +41,8 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Join the Inner Circle",
-        "subtext": "Be first to know about new launches, exclusive offers, and skin tips.",
+        "heading": "Join the Opalé Circle",
+        "subtext": "Be first to know about new launches, exclusive offers, and expert whitening tips.",
         "placeholder": "Your email address",
         "btn_text": "Subscribe"
       }

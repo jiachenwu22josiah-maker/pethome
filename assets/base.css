@@ -1,14 +1,18 @@
 /* ===== Variables ===== */
 :root {
-  --black: #111111;
+  --black: #1A0A2E;
   --white: #FFFFFF;
-  --cream: #FAF8F5;
-  --cream-dark: #F2EDE6;
-  --gold: #B8965A;
-  --gold-light: #D4B483;
-  --text: #1A1A1A;
-  --text-muted: #888888;
-  --border: #E8E2D8;
+  --cream: #F9F7FF;
+  --cream-dark: #EDE8FF;
+  --gold: #7C5CBF;
+  --gold-light: #C8B8EF;
+  --purple: #7C5CBF;
+  --purple-dark: #3D2A7A;
+  --purple-light: #EDE8FF;
+  --pearl: #F9F7FF;
+  --text: #2D1B5E;
+  --text-muted: #9080B8;
+  --border: #DDD5F5;
 
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', sans-serif;
@@ -78,26 +82,26 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius);
 }
 .btn-dark {
-  background: var(--black);
+  background: var(--purple);
   color: var(--white);
-  border: 1px solid var(--black);
+  border: 1px solid var(--purple);
 }
 .btn-dark:hover {
-  background: #333;
-  border-color: #333;
+  background: var(--purple-dark);
+  border-color: var(--purple-dark);
 }
 .btn-outline {
   background: transparent;
-  color: var(--black);
-  border: 1px solid var(--black);
+  color: var(--purple);
+  border: 1px solid var(--purple);
 }
 .btn-outline:hover {
-  background: var(--black);
+  background: var(--purple);
   color: var(--white);
 }
 .btn-white {
   background: var(--white);
-  color: var(--black);
+  color: var(--purple);
   border: 1px solid var(--white);
 }
 .btn-white:hover {
@@ -105,11 +109,11 @@ p:last-child { margin-bottom: 0; }
   color: var(--white);
 }
 .btn-gold {
-  background: var(--gold);
+  background: var(--purple);
   color: var(--white);
-  border: 1px solid var(--gold);
+  border: 1px solid var(--purple);
 }
-.btn-gold:hover { background: #9e7d45; border-color: #9e7d45; }
+.btn-gold:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
 .btn-full { width: 100%; }
 
 /* ===== Overlay ===== */
@@ -132,12 +136,12 @@ p:last-child { margin-bottom: 0; }
   color: var(--text-muted);
   margin-bottom: 16px;
 }
-.label-gold { color: var(--gold); }
+.label-gold { color: var(--purple); }
 
 /* ===== Divider ===== */
 .divider {
   width: 40px; height: 1px;
-  background: var(--gold);
+  background: var(--purple);
   margin: 24px 0;
 }
 .divider-center { margin: 24px auto; }
@@ -170,12 +174,12 @@ p:last-child { margin-bottom: 0; }
 /* ===== Compatibility aliases ===== */
 .section-padding { padding: 96px 0; }
 .section-padding-sm { padding: 60px 0; }
-.btn-primary { background: var(--black); color: var(--white); border: 1px solid var(--black); }
-.btn-primary:hover { background: #333; border-color: #333; }
+.btn-primary { background: var(--purple); color: var(--white); border: 1px solid var(--purple); }
+.btn-primary:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
 .section-title { text-align: center; margin-bottom: 56px; }
 .section-title h2 { margin-bottom: 12px; }
 .section-title p { color: var(--text-muted); max-width: 480px; margin: 0 auto; font-size: 1.0625rem; }
-.eyebrow { display: block; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-.badge-new { background: var(--black); color: white; }
-.badge-sale { background: var(--gold); color: white; }
-.badge-bestseller { background: #333; color: white; }
+.eyebrow { display: block; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--purple); margin-bottom: 14px; }
+.badge-new { background: var(--purple); color: white; }
+.badge-sale { background: var(--purple-dark); color: white; }
+.badge-bestseller { background: var(--purple); color: white; }
