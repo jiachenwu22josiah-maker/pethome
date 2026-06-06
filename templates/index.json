@@ -18,8 +18,21 @@
         "subtext": "PAP+ whitening technology clinically proven to whiten teeth without sensitivity or enamel damage.",
         "btn1_text": "Shop Now",
         "btn1_link": "/collections/all",
-        "btn2_text": "New In",
-        "btn2_link": "/collections/new"
+        "btn2_text": "See Results",
+        "btn2_link": "/collections/whitening"
+      }
+    },
+    "social_proof": {
+      "type": "social-proof-bar",
+      "settings": {
+        "rating": "4.9/5",
+        "review_count": "Based on 10,000+ reviews",
+        "stat1_number": "10,000+",
+        "stat1_label": "Happy Customers",
+        "stat2_number": "7 Days",
+        "stat2_label": "Visible Results",
+        "stat3_number": "0%",
+        "stat3_label": "Sensitivity"
       }
     },
     "highlights": {
@@ -38,6 +51,18 @@
         "btn_link": "/collections/all"
       }
     },
+    "video": {
+      "type": "video-feature",
+      "settings": {
+        "eyebrow": "Real Results",
+        "heading": "See It In Action",
+        "subtext": "Watch real customers transform their smiles with Opalé whitening strips.",
+        "video_type": "youtube",
+        "youtube_url": "",
+        "btn_text": "Shop Whitening Strips",
+        "btn_link": "/collections/whitening"
+      }
+    },
     "newsletter": {
       "type": "newsletter",
       "settings": {
@@ -50,8 +75,10 @@
   },
   "order": [
     "hero",
+    "social_proof",
     "highlights",
     "featured",
+    "video",
     "newsletter"
   ]
 }

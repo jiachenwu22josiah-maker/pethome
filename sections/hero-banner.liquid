@@ -1,18 +1,40 @@
-<section class="hero">
-  {% if section.settings.image %}
-    <div class="hero-media">
-      {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high' }}
-    </div>
-  {% endif %}
+<section class="hero-split {% if section.settings.image == blank %}hero-split--no-image{% endif %}">
   <div class="container">
-    <div class="hero-content">
-      <span class="label label-gold">{{ section.settings.eyebrow }}</span>
-      <h1>{{ section.settings.heading }}</h1>
-      <p>{{ section.settings.subtext }}</p>
-      <div class="hero-actions">
-        <a href="{{ section.settings.btn1_link }}" class="btn btn-white">{{ section.settings.btn1_text }}</a>
-        <a href="{{ section.settings.btn2_link }}" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white;">{{ section.settings.btn2_text }}</a>
+    <div class="hero-split__inner">
+
+      <div class="hero-split__text">
+        {% if section.settings.eyebrow != blank %}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {% endif %}
+        <h1>{{ section.settings.heading | newline_to_br }}</h1>
+        {% if section.settings.subtext != blank %}
+          <p class="hero-split__sub">{{ section.settings.subtext }}</p>
+        {% endif %}
+        <div class="hero-split__actions">
+          {% if section.settings.btn1_text != blank %}
+            <a href="{{ section.settings.btn1_link }}" class="btn btn-dark">{{ section.settings.btn1_text }}</a>
+          {% endif %}
+          {% if section.settings.btn2_text != blank %}
+            <a href="{{ section.settings.btn2_link }}" class="btn btn-outline">{{ section.settings.btn2_text }}</a>
+          {% endif %}
+        </div>
+        <div class="hero-split__trust">
+          <span>✓ PAP+ Formula</span>
+          <span>✓ Zero Sensitivity</span>
+          <span>✓ Results in 7 Days</span>
+        </div>
       </div>
+
+      <div class="hero-split__media">
+        {% if section.settings.image %}
+          {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'eager', fetchpriority: 'high', class: 'hero-split__img' }}
+        {% else %}
+          <div class="hero-split__placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+
     </div>
   </div>
 </section>
@@ -21,13 +43,13 @@
 {
   "name": "Hero Banner",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Background image" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New Collection" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Skin That Speaks\nFor Itself." },
-    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Advanced skincare formulated with the world's finest botanical and bio-active ingredients." },
-    { "type": "text", "id": "btn1_text", "label": "Button 1", "default": "Shop Now" },
+    { "type": "image_picker", "id": "image", "label": "Product / lifestyle image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Advanced Oral Care" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Your Brightest\nSmile Ever." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "PAP+ whitening technology clinically proven to whiten teeth without sensitivity or enamel damage." },
+    { "type": "text", "id": "btn1_text", "label": "Button 1 text", "default": "Shop Now" },
     { "type": "url", "id": "btn1_link", "label": "Button 1 link" },
-    { "type": "text", "id": "btn2_text", "label": "Button 2", "default": "Discover More" },
+    { "type": "text", "id": "btn2_text", "label": "Button 2 text", "default": "New In" },
     { "type": "url", "id": "btn2_link", "label": "Button 2 link" }
   ],
   "presets": [{ "name": "Hero Banner" }]
