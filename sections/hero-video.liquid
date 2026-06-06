@@ -1,0 +1,53 @@
+<section class="hero-v2">
+  <div class="hero-v2__inner">
+
+    <div class="hero-v2__text">
+      {% if section.settings.eyebrow != blank %}
+        <span class="hero-v2__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      <h1 class="hero-v2__heading">{{ section.settings.heading }}</h1>
+      {% if section.settings.subtext != blank %}
+        <p class="hero-v2__sub">{{ section.settings.subtext }}</p>
+      {% endif %}
+      {% if section.settings.btn_text != blank %}
+        <a href="{{ section.settings.btn_link }}" class="hero-v2__btn">{{ section.settings.btn_text }}</a>
+      {% endif %}
+    </div>
+
+    <div class="hero-v2__media">
+      {% if section.settings.video_url != blank %}
+        {% assign vid_id = section.settings.video_url | split: 'v=' | last | split: '&' | first %}
+        <iframe
+          src="https://www.youtube.com/embed/{{ vid_id }}?autoplay=1&mute=1&loop=1&playlist={{ vid_id }}&controls=0&rel=0&modestbranding=1"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          class="hero-v2__iframe">
+        </iframe>
+      {% elsif section.settings.image %}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', fetchpriority: 'high', class: 'hero-v2__img' }}
+      {% else %}
+        <div class="hero-v2__placeholder">
+          <p>Add a YouTube URL or image in theme settings</p>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero — Video",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Advanced Oral Care" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Your Brightest Smile Ever." },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "PAP+ formula. Zero sensitivity. Whiter in 7 days." },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "Shop now" },
+    { "type": "url", "id": "btn_link", "label": "Button link" },
+    { "type": "text", "id": "video_url", "label": "YouTube URL", "info": "Paste YouTube URL — will autoplay muted on load" },
+    { "type": "image_picker", "id": "image", "label": "Fallback image (if no video)" }
+  ],
+  "presets": [{ "name": "Hero — Video" }]
+}
+{% endschema %}

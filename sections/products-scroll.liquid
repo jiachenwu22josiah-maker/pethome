@@ -1,0 +1,75 @@
+<section class="products-scroll section-sm">
+  <div class="products-scroll__wrap">
+
+    <div class="products-scroll__label">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subtext }}</p>
+      <a href="{{ section.settings.btn_link }}" class="products-scroll__all">
+        {{ section.settings.btn_text }}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="products-scroll__track">
+      {% assign col = collections[section.settings.collection] %}
+      {% if col and col.products.size > 0 %}
+        {% for product in col.products limit: 8 %}
+          <div class="ps-card">
+            <a href="{{ product.url }}" class="ps-card__media">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: product.title }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+              {% if product.tags contains 'new' %}
+                <span class="ps-card__badge">NEW</span>
+              {% elsif product.compare_at_price > product.price %}
+                <span class="ps-card__badge ps-card__badge--sale">SALE</span>
+              {% endif %}
+            </a>
+            <div class="ps-card__info">
+              <p class="ps-card__name">{{ product.title }}</p>
+              <div class="ps-card__price-row">
+                <span class="ps-card__price">{{ product.price | money }}</span>
+                {% if product.compare_at_price > product.price %}
+                  <span class="ps-card__compare">{{ product.compare_at_price | money }}</span>
+                {% endif %}
+              </div>
+              <a href="{{ product.url }}?add=1" class="ps-card__btn">Add to cart</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..5) %}
+          <div class="ps-card">
+            <div class="ps-card__media">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="ps-card__info">
+              <p class="ps-card__name">Sample Product {{ i }}</p>
+              <div class="ps-card__price-row">
+                <span class="ps-card__price">$39.00</span>
+              </div>
+              <button class="ps-card__btn">Add to cart</button>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Products Scroll",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop our best sellers" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Explore our range of fan-favourites" },
+    { "type": "text", "id": "btn_text", "label": "Link text", "default": "Shop all" },
+    { "type": "url", "id": "btn_link", "label": "Link URL" },
+    { "type": "collection", "id": "collection", "label": "Collection" }
+  ],
+  "presets": [{ "name": "Products Scroll" }]
+}
+{% endschema %}
