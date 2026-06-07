@@ -12,10 +12,10 @@
     "hero_video": {
       "type": "hero-video",
       "settings": {
-        "eyebrow": "Advanced Oral Care",
-        "heading": "Your Brightest Smile Ever.",
-        "subtext": "PAP+ formula. Zero sensitivity. Whiter in 7 days.",
-        "btn_text": "Shop now",
+        "eyebrow": "Premium Skincare",
+        "heading": "Skin That Speaks For Itself.",
+        "subtext": "Advanced skincare formulated with the world's finest botanical and bio-active ingredients.",
+        "btn_text": "Shop Now",
         "btn_link": "/collections/all",
         "video_url": ""
       }
@@ -23,8 +23,8 @@
     "products_scroll": {
       "type": "products-scroll",
       "settings": {
-        "heading": "Shop our best sellers",
-        "subtext": "Explore our range of fan-favourites",
+        "heading": "Our Most Loved",
+        "subtext": "Discover the treatments our customers return to again and again.",
         "btn_text": "Shop all",
         "btn_link": "/collections/all",
         "collection": "bestseller"
@@ -41,17 +41,17 @@
         "review_count": "Based on 10,000+ reviews",
         "stat1_number": "10,000+",
         "stat1_label": "Happy Customers",
-        "stat2_number": "7 Days",
-        "stat2_label": "Visible Results",
-        "stat3_number": "0%",
-        "stat3_label": "Sensitivity"
+        "stat2_number": "100%",
+        "stat2_label": "Clean Ingredients",
+        "stat3_number": "30 Day",
+        "stat3_label": "Money-Back Guarantee"
       }
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
         "heading": "Join the Opalé Circle",
-        "subtext": "Be first to know about new launches, exclusive offers, and expert whitening tips.",
+        "subtext": "Be first to know about new launches, exclusive offers, and expert skincare tips.",
         "placeholder": "Your email address",
         "btn_text": "Subscribe"
       }

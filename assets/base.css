@@ -1,18 +1,18 @@
 /* ===== Variables ===== */
 :root {
-  --black: #1A0A2E;
+  --black: #111111;
   --white: #FFFFFF;
-  --cream: #F9F7FF;
-  --cream-dark: #EDE8FF;
-  --gold: #7C5CBF;
-  --gold-light: #C8B8EF;
-  --purple: #7C5CBF;
-  --purple-dark: #3D2A7A;
-  --purple-light: #EDE8FF;
-  --pearl: #F9F7FF;
-  --text: #2D1B5E;
-  --text-muted: #9080B8;
-  --border: #DDD5F5;
+  --cream: #FAF8F5;
+  --cream-dark: #F2EDE6;
+  --gold: #B8965A;
+  --gold-light: #D4B483;
+  --purple: #B8965A;
+  --purple-dark: #9e7d45;
+  --purple-light: #F2EDE6;
+  --pearl: #FAF8F5;
+  --text: #1A1A1A;
+  --text-muted: #888888;
+  --border: #E8E2D8;
 
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', sans-serif;
